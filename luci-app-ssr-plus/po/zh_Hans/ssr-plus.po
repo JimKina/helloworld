@@ -91,16 +91,44 @@ msgstr "TLS 主机名"
 msgid "allowInsecure"
 msgstr "允许不安全连接"
 
+msgid "Enable Mux.Cool"
+msgstr "启用 Mux.Cool"
+
+msgid "Enable Xudp Mux"
+msgstr "启用 Xudp Mux"
+
+msgid "Enable Multipath TCP, need to be enabled in both server and client configuration."
+msgstr "启用 Multipath TCP，需在服务端和客户端配置中同时启用。"
 
 msgid "concurrency"
 msgstr "TCP 最大并发连接数"
 
+msgid "Default: disable. When entering a negative number, such as -1, The Mux module will not be used to carry TCP traffic."
+msgstr "默认：禁用。填负数时，如 -1，不使用 Mux 模块承载 TCP 流量。"
+
+msgid "Min value is 1, Max value is 128. When omitted or set to 0, it equals 8."
+msgstr "最小值 1，最大值 128。省略或者填 0 时都等于 8。"
+
 msgid "xudpConcurrency"
 msgstr "UDP 最大并发连接数"
+
+msgid "Default:16. When entering a negative number, such as -1, The Mux module will not be used to carry UDP traffic, Use original UDP transmission method of proxy protocol."
+msgstr "默认值：16。填负数时，如 -1，不使用 Mux 模块承载 UDP 流量。将使用代理协议原本的 UDP 传输方式。"
+
+msgid "Min value is 1, Max value is 1024. When omitted or set to 0, Will same path as TCP traffic."
+msgstr "最小值 1，最大值 1024。 省略或者填 0 时，将与 TCP 流量走同一条路，也就是传统的行为。"
 
 msgid "xudpProxyUDP443"
 msgstr "对被代理的 UDP/443 流量处理方式"
 
+msgid "Default reject rejects traffic."
+msgstr "默认 reject 拒绝流量。"
+
+msgid "allow: Allows use Mux connection."
+msgstr "allow：允许走 Mux 连接。"
+
+msgid "skip: Not use Mux module to carry UDP 443 traffic, Use original UDP transmission method of proxy protocol."
+msgstr "skip：不使用 Mux 模块承载 UDP 443 流量，将使用代理协议原本的 UDP 传输方式。"
 
 msgid "custom_tcpcongestion"
 msgstr "连接服务器节点的 TCP 拥塞控制算法"
@@ -131,16 +159,19 @@ msgid "NOTE: If the server uses the userpass authentication, the format must be 
 msgstr "注意： 如果服务器使用 userpass 验证，格式必须是 username:password。"
 
 msgid "Enable Port Hopping"
-msgstr "启用端口跃迁"
+msgstr "启用端口跳跃"
 
 msgid "Enable Transport Protocol Settings"
 msgstr "启用传输协议设置"
 
-msgid "Port Range"
-msgstr "端口范围值"
+msgid "Port hopping range"
+msgstr "端口跳跃范围"
+
+msgid "Format as 10000:20000 or 10000-20000 Multiple groups are separated by commas (,)."
+msgstr "格式为：10000:20000 或 10000-20000 多组时用逗号（,）隔开。"
 
 msgid "Port Hopping Interval(Unit:Second)"
-msgstr "端口跃迁间隔（单位：秒）"
+msgstr "端口跳跃间隔（单位：秒）"
 
 msgid "Enable Lazy Mode"
 msgstr "启用懒狗模式"
@@ -180,13 +211,13 @@ msgid "Certificate fingerprint"
 msgstr "证书指纹"
 
 msgid "shadowTLS protocol Version"
-msgstr "ShadowTLS协议版本"
+msgstr "ShadowTLS 协议版本"
 
 msgid "TLS 1.3 Strict mode"
 msgstr "TLS 1.3 限定模式"
 
 msgid "Disable TCP No_delay"
-msgstr "禁用TCP无延迟"
+msgstr "禁用 TCP 无延迟"
 
 msgid "shadow-TLS SNI"
 msgstr "服务器名称指示"
@@ -194,11 +225,20 @@ msgstr "服务器名称指示"
 msgid "Shadow-TLS ChainPoxy type"
 msgstr "代理链类型"
 
-msgid "Shadowsocks-rust Version"
-msgstr "shadowsocks rust 版本"
+msgid "ShadowSocks Node Use Version"
+msgstr "ShadowSocks 节点使用版本"
+
+msgid "Selection ShadowSocks Node Use Version."
+msgstr "选择 ShadowSocks 节点使用版本。"
+
+msgid "ShadowSocks-libev Version"
+msgstr "ShadowSocks-libev 版本"
+
+msgid "ShadowSocks-rust Version"
+msgstr "ShadowSocks-rust 版本"
 
 msgid "Vmess Protocol"
-msgstr "VMESS协议"
+msgstr "VMESS 协议"
 
 msgid "Shadowsocks password"
 msgstr "shadowsocks密码"
@@ -305,6 +345,9 @@ msgstr "服务器"
 msgid "TCP Fast Open"
 msgstr "TCP 快速打开"
 
+msgid "Enabling TCP Fast Open Requires Server Support."
+msgstr "启用 TCP 快速打开需要服务端支持。"
+
 msgid "Status"
 msgstr "状态"
 
@@ -376,6 +419,12 @@ msgstr "强制走代理"
 
 msgid "UDP Relay"
 msgstr "UDP 中继"
+
+msgid "Restart ShadowSocksR Plus+"
+msgstr "重启 ShadowSocksR Plus+"
+
+msgid "Restart Service"
+msgstr "重启服务"
 
 msgid "Google Connectivity"
 msgstr "【谷歌】连通性检查"
@@ -563,14 +612,80 @@ msgstr "访问国外域名 DNS 服务器"
 msgid "Custom DNS Server format as IP:PORT (default: 8.8.4.4:53)"
 msgstr "格式为 IP:Port（默认：8.8.4.4:53）"
 
+msgid "Muitiple DNS server can saperate with ','"
+msgstr "多个上游 DNS 服务器请用 ',' 分隔（注意用英文逗号)"
+
+msgid "ChinaDNS-NG query protocol"
+msgstr "ChinaDNS-NG 查询协议"
+
+msgid "UDP/TCP upstream"
+msgstr "UDP/TCP 上游"
+
+msgid "TCP upstream"
+msgstr "TCP 上游"
+
+msgid "UDP upstream"
+msgstr "UDP 上游"
+
+msgid "DoT upstream (Need use wolfssl version)"
+msgstr "DoT 上游（需使用 wolfssl 版本）"
+
+msgid "ChinaDNS-NG shunt query protocol"
+msgstr "ChinaDNS-NG 分流查询协议"
+
 msgid "Use DNS2TCP query"
 msgstr "使用 DNS2TCP 查询"
 
 msgid "Use DNS2SOCKS query and cache"
 msgstr "使用 DNS2SOCKS 查询并缓存"
 
+msgid "Use DNS2SOCKS-RUST query and cache"
+msgstr "使用 DNS2SOCKS-RUST 查询并缓存"
+
 msgid "Use MOSDNS query (Not Support Oversea Mode)"
 msgstr "使用 MOSDNS 查询 (不支持海外用户回国模式)"
+
+msgid "Use DNSPROXY query and cache"
+msgstr "使用 DNSPROXY 查询并缓存"
+
+msgid "Use ChinaDNS-NG query and cache"
+msgstr "使用 ChinaDNS-NG 查询并缓存"
+
+msgid "Select DNS parse Mode"
+msgstr "选择 DNS 解析方式"
+
+msgid "Set Single DNS"
+msgstr "设置单个 DNS"
+
+msgid "Custom DNS Server (support: IP:Port or tls://IP:Port or https://IP/dns-query and other format)."
+msgstr "自定义 DNS 服务器（支持格式：IP:端口、tls://IP:端口、https://IP/dns-query 及其他格式）。"
+
+msgid "Use DNS List File"
+msgstr "使用 DNS 列表文件"
+
+msgid "Defines the upstreams logic mode"
+msgstr "定义上游逻辑模式"
+
+msgid "load_balance"
+msgstr "负载均衡"
+
+msgid "parallel"
+msgstr "并行查询"
+
+msgid "fastest_addr"
+msgstr "最快响应"
+
+msgid "Disable IPv6 query mode"
+msgstr "禁止返回 IPv6 记录"
+
+msgid "When disabled, all AAAA requests are not resolved."
+msgstr "当禁用时，不解析所有 AAAA 请求。"
+
+msgid "Defines the upstreams logic mode, possible values: load_balance, parallel, fastest_addr (default: load_balance)."
+msgstr "定义上游逻辑模式，可选择值：负载均衡、并行查询、最快响应（默认值：负载均衡）。"
+
+msgid "When two or more DNS servers are deployed, enable this function."
+msgstr "当部署两台或两台以上 DNS 服务器时，需要启用该功能。"
 
 msgid "Disable IPv6 in MOSDNS query mode"
 msgstr "禁止 MOSDNS 返回 IPv6 记录"
@@ -584,14 +699,29 @@ msgstr "分流模式下的访问国外域名 DNS 服务器"
 msgid "Use MOSDNS query"
 msgstr "使用 MOSDNS 查询"
 
-msgid "Custom DNS Server for mosdns"
-msgstr "MOSDNS 自定义 DNS 服务器"
+msgid "Custom DNS Server for MosDNS"
+msgstr "MosDNS 自定义 DNS 服务器"
 
-msgid "Disable IPv6 In MOSDNS Query Mode (Shunt Mode)"
-msgstr "禁止 MOSDNS 返回 IPv6 记录 (分流模式)"
+msgid "Disable IPv6 In MosDNS Query Mode (Shunt Mode)"
+msgstr "禁止 MosDNS 返回 IPv6 记录 (分流模式)"
 
 msgid "DNS Server IP:Port"
 msgstr "DNS 服务器 IP:Port"
+
+msgid "When use DNS list file, please ensure list file exists and is formatted correctly."
+msgstr "当使用 DNS 列表文件时，请确保列表文件存在并且格式正确。"
+
+msgid "Tips: Dnsproxy DNS Parse List Path:"
+msgstr "提示：Dnsproxy 的 DNS 解析列表路径："
+
+msgid "Click here to view or manage the DNS list file"
+msgstr "点击此处查看或管理 DNS 列表文件"
+
+msgid "Dnsproxy Parse List"
+msgstr "DNSPROXY 解析列表"
+
+msgid "Specifically for edit dnsproxy DNS parse files."
+msgstr "专门用于编辑 DNSPROXY 的 DNS 解析文件。"
 
 msgid "Domestic DNS Server"
 msgstr "国内 DNS 服务器"
@@ -806,8 +936,17 @@ msgstr "修改订阅 URL 和节点关键字后，请先点击更新"
 msgid "Update All Subscribe Servers"
 msgstr "更新所有订阅服务器节点"
 
+msgid "Enable Plugin"
+msgstr "启用插件"
+
 msgid "Plugin"
 msgstr "插件"
+
+msgid "Custom"
+msgstr "自定义"
+
+msgid "Custom Plugin Path"
+msgstr "自定义插件路径"
 
 msgid "Plugin Opts"
 msgstr "插件参数"
@@ -884,6 +1023,30 @@ msgstr "本机服务端"
 msgid "Global SOCKS5 Proxy Server"
 msgstr "SOCKS5 代理服务端（全局）"
 
+msgid "Socks5 Auth Mode"
+msgstr "Socks5 认证方式"
+
+msgid "Socks protocol auth methods, default:noauth."
+msgstr "Socks 协议的认证方式，默认值：noauth。"
+
+msgid "Socks5 User"
+msgstr "Socks5 用户名"
+
+msgid "Only when Socks5 Auth Mode is password valid, Mandatory."
+msgstr "仅当 Socks5 认证方式为 Password 时有效，必填。"
+
+msgid "Socks5 Password"
+msgstr "Socks5 密码"
+
+msgid "Only when Socks5 Auth Mode is password valid, Not mandatory."
+msgstr "仅当 Socks5 认证方式为 Password 时有效，非必填。"
+
+msgid "Enabled Mixed"
+msgstr "启用 Mixed"
+
+msgid "Mixed as an alias of socks, default:Enabled."
+msgstr "Mixed 作为 SOCKS 的别名，默认：启用。"
+
 msgid "Xray Fragment Settings"
 msgstr "Xray 分片设置"
 
@@ -920,8 +1083,8 @@ msgstr "UDP 噪声，在某些情况下可以绕过一些针对 UDP 协议的限
 msgid "To send noise packets, select \"Noise\" in Xray Settings."
 msgstr "在 Xray 设置中勾选 “噪声” 以发送噪声包。"
 
-msgid "For specific usage, see: "
-msgstr "具体使用方法参见："
+msgid "For specific usage, see:"
+msgstr "具体使用方法，请参见："
 
 msgid "Click to the page"
 msgstr "点击前往"
@@ -985,6 +1148,27 @@ msgstr "SplitHTTP 主机名"
 
 msgid "Splithttp Path"
 msgstr "SplitHTTP 路径"
+
+msgid "XHTTP Mode"
+msgstr "XHTTP 模式"
+
+msgid "XHTTP Host"
+msgstr "XHTTP 主机名"
+
+msgid "XHTTP Path"
+msgstr "XHTTP 路径"
+
+msgid "XHTTP Extra"
+msgstr "XHTTP 附加项"
+
+msgid "Enable this option to configure XHTTP Extra (JSON format)."
+msgstr "启用此选项配置 XHTTP 附加项（JSON 格式）。"
+
+msgid "Configure XHTTP Extra Settings (JSON format), see:"
+msgstr "配置 XHTTP 额外设置（JSON 格式），请参见："
+
+msgid "Invalid JSON format"
+msgstr "无效的 JSON 格式"
 
 msgid "HTTP/2 Host"
 msgstr "HTTP/2 主机名"
@@ -1112,6 +1296,9 @@ msgstr "应用"
 msgid "Enable Netflix Mode"
 msgstr "启用 Netflix 分流模式"
 
+msgid "When disabled shunt mode, will same time stopped shunt service."
+msgstr "当停用分流模式时，将同时停止分流服务。"
+
 msgid "TUIC User UUID"
 msgstr "TUIC 用户 uuid"
 
@@ -1168,3 +1355,51 @@ msgstr "socks5 服务器可以从外部接收的最大数据包大小（单位�
 
 msgid "Disable ChinaDNS-NG"
 msgstr "直通模式（禁用 ChinaDNS-NG）"
+
+msgid "Clear logs"
+msgstr "清空日志"
+
+msgid "Backup and Restore"
+msgstr "备份还原"
+
+msgid "Backup or Restore Client and Server Configurations."
+msgstr "备份或还原客户端及服务端配置。"
+
+msgid "Note: Restoring configurations across different versions may cause compatibility issues."
+msgstr "注意：不同版本间的配置恢复可能会导致兼容性问题。"
+
+msgid "Create Backup File"
+msgstr "创建备份文件"
+
+msgid "Restore Backup File"
+msgstr "恢复备份文件"
+
+msgid "DL Backup"
+msgstr "下载备份"
+
+msgid "RST Backup"
+msgstr "恢复备份"
+
+msgid "UL Restore"
+msgstr "上传恢复"
+
+msgid "CLOSE WIN"
+msgstr "关闭窗口"
+
+msgid "Restore to default configuration"
+msgstr "恢复默认配置"
+
+msgid "Do Reset"
+msgstr "执行重置"
+
+msgid "Do you want to restore the client to default settings?"
+msgstr "是否要恢复客户端默认配置？"
+
+msgid "Are you sure you want to restore the client to default settings?"
+msgstr "是否真的要恢复客户端默认配置？"
+
+msgid "Allow subscribe Insecure nodes By default"
+msgstr "订阅节点允许不验证TLS证书"
+
+msgid "Subscribe nodes allows insecure connection as TLS client (insecure)"
+msgstr "订阅节点强制开启 不验证TLS客户端证书 (insecure)"
